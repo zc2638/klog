@@ -415,6 +415,7 @@ func init() {
 	logging.addDirHeader = false
 	logging.skipLogHeaders = false
 	logging.oneOutput = false
+	logging.stackTrace = true
 	go logging.flushDaemon()
 }
 
@@ -431,7 +432,7 @@ func InitFlags(flagset *flag.FlagSet) {
 			"If the value is 0, the maximum file size is unlimited.")
 	flagset.BoolVar(&logging.toStderr, "logtostderr", logging.toStderr, "log to standard error instead of files")
 	flagset.BoolVar(&logging.alsoToStderr, "alsologtostderr", logging.alsoToStderr, "log to standard error as well as files")
-	flagset.BoolVar(&logging.stackTrace, "stackTrace", logging.stackTrace, "log to display the stack trace")
+	flagset.BoolVar(&logging.stackTrace, "stacktrace", logging.stackTrace, "log to display the stack trace")
 	flagset.Var(&logging.verbosity, "v", "number for the log level verbosity")
 	flagset.BoolVar(&logging.addDirHeader, "add_dir_header", logging.addDirHeader, "If true, adds the file directory to the header of the log messages")
 	flagset.BoolVar(&logging.skipHeaders, "skip_headers", logging.skipHeaders, "If true, avoid header prefixes in the log messages")
